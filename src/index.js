@@ -1,11 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { ThemeProvider } from '@emotion/react';
+import { BrowserRouter as Router } from "react-router-dom";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { lightTheme } from 'theme';
 import App from 'App';
 import 'index.css';
+import 'antd/dist/antd.css'
+
+const client = new ApolloClient({
+  uri: process.env.REACT_APP_URL,
+  cache: new InMemoryCache()
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={client}>
+      <Router>
+        <ThemeProvider theme={lightTheme}>
+          <App />
+        </ThemeProvider>
+      </Router>
+    </ApolloProvider>
   </React.StrictMode>
 );

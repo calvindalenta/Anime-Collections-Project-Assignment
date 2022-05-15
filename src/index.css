@@ -4,8 +4,13 @@
   box-sizing: border-box;
 }
 
+p {
+  font-size: 1rem;
+  margin: 0;
+}
+
 body {
-  font-family: "Poppins", "Roboto", sans-serif;
+  font-family: "Poppins";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
