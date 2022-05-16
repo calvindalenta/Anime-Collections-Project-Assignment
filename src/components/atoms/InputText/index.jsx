@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { Input as AntdInput } from "antd"
 
 const StyledInput = styled(AntdInput)`
-  background-color: ${({ theme }) => theme.color.tertiary};
+  background-color: ${({ theme }) => theme.color.secondary};
   color: ${({ theme }) => theme.text.primary} !important;
 
   &:focus {

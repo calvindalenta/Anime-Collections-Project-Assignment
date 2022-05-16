@@ -28,7 +28,7 @@ const StyledCard = styled(Card)`
   }
 
   & .ant-card-actions {
-    background-color: ${({ theme }) => theme.color.tertiaryShade};
+    background-color: ${({ theme }) => theme.color.secondary};
   }
 `
 

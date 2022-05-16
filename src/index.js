@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from '@emotion/react';
 import { BrowserRouter as Router } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { DarkModeProvider } from 'context/DarkModeProvider';
 import { darkTheme, lightTheme } from 'theme';
 import App from 'App';
 import 'index.css';
@@ -18,11 +19,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <Router>
-        <ThemeProvider theme={darkTheme}>
+      <DarkModeProvider>
+        <Router>
           <App />
-        </ThemeProvider>
-      </Router>
+        </Router>
+      </DarkModeProvider>
     </ApolloProvider>
   </React.StrictMode>
 );

@@ -1,3 +1,5 @@
+import React from "react"
+
 export const lightTheme = {
   color: {
     primary: "#FF6740",

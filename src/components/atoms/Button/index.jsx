@@ -12,8 +12,8 @@ const Button = styled(AntdButton)`
   }
 
   &[disabled] {
-    background-color: ${({ theme }) => theme.color.tertiaryShade} !important;
-    color: ${({ theme }) => theme.text.secondary};
+    background-color: ${({ theme }) => theme.color.tertiary} !important;
+    color: ${({ theme }) => theme.text.primary};
   }
 `
 

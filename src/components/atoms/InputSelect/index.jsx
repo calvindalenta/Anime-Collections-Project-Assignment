@@ -12,7 +12,7 @@ const StyledSelect = styled(AntdSelect)`
   }
 
   & .ant-select-selector {
-    background-color: ${({ theme }) => theme.color.tertiary} !important;
+    background-color: ${({ theme }) => theme.color.secondary} !important;
     color: ${({ theme }) => theme.text.primary} !important;
   }
 `

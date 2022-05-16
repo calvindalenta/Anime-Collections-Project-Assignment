@@ -5,6 +5,7 @@ import CloseIcon from "components/atoms/CloseIcon";
 import HomeIcon from "components/atoms/HomeIcon";
 import IconButton from "components/atoms/IconButton";
 import Logo from "components/atoms/Logo";
+import SwitchTheme from "components/atoms/SwitchTheme";
 import Text from "components/atoms/Text";
 import NavItem from "components/molecules/NavItem";
 import { COLLECTIONS_ROUTE, HOME_ROUTE } from "utils/route";
@@ -69,6 +70,7 @@ const Sidebar = ({ collapsed, onClose }) => {
             selected={path === COLLECTIONS_ROUTE}
             href={COLLECTIONS_ROUTE}
           />
+          <SwitchTheme />
         </Space>
       </Container>
     </SidebarStyled>

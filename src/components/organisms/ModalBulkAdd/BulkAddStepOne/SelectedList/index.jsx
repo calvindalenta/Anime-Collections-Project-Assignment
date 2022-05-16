@@ -14,8 +14,8 @@ const ListContainer = styled(Space)`
 const CollapseStyled = styled(Collapse)`
   border-color: ${({ theme }) => theme.color.tertiaryShade};
 
-  & .ant-collapse-arrow {
-    background-color: ${({ theme }) => theme.text.primary};
+  & .ant-collapse-arrow path{
+    fill: ${({ theme }) => theme.text.primary};
   }
 
   & .ant-collapse-header {

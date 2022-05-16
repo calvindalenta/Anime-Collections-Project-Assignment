@@ -2,6 +2,7 @@ import { Empty, Space } from "antd";
 import styled from "@emotion/styled";
 import HistoryItem from "components/molecules/HistoryItem";
 import useCollection from "hooks/useCollection";
+import Error from "components/atoms/Error";
 
 const Container = styled(Space)`
   width: 100%;
@@ -23,7 +24,9 @@ const HistoryList = (props) => {
   return (
     <Container direction="vertical" size="small">
       {info.histories.length < 1 &&
-        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No History"/>
+        <Error>
+          <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No History"/>
+        </Error>
       }
       {info.histories &&
         info.histories.map((h, idx) => (

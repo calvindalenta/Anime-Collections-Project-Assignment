@@ -47,6 +47,11 @@ const AnimeList = (props) => {
             <Empty description={error.message ? error.message : "Something went wrong"} image={Empty.PRESENTED_IMAGE_SIMPLE} />
           </Error>
         }
+        {data && data.Page.media.length < 1 &&
+          <Error>
+            <Empty description="No Anime Found" image={Empty.PRESENTED_IMAGE_SIMPLE} />
+          </Error>
+        }
         {data && data.Page.media.map(m => (
           <Link to={getAnimeDetailRoute(m.id)} key={m.id}>
             <AnimeItem 
@@ -58,8 +63,7 @@ const AnimeList = (props) => {
               status={m.status}
             />
           </Link>
-        ))
-        }
+        ))}
       </ListContainer>
       {data &&
         <FlexMiddle>
