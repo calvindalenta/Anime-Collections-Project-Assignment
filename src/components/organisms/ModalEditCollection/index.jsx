@@ -25,7 +25,7 @@ const ModalEditCollection = ({ collection, visible, onRequestClose }) => {
       footer={null}
       destroyOnClose
       visible={visible}
-      onCancel={onRequestClose}
+      onCancel={() => onRequestClose()}
       title={<p style={{ textAlign: "center" }}>Edit Collection</p>}
     >
       <Spacer direction="vertical" size="large">
@@ -35,7 +35,7 @@ const ModalEditCollection = ({ collection, visible, onRequestClose }) => {
             disabled={!data.value || data.error}
             onClick={() => {
               editCollection({ before: collection, after: data.value })
-              onRequestClose()
+              onRequestClose(data.value)
             }}
           >
             Submit

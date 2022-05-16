@@ -2,7 +2,7 @@ import { gql } from "@apollo/client"
 
 const DETAIL_ANIME_QUERY = gql`
 query DetailAnime($id: Int) {
-  Media (id: $id, type: ANIME, isAdult: false) {
+  Media (id: $id, type: ANIME, isAdult: false, countryOfOrigin: JP) {
     id,
     averageScore,
     duration,

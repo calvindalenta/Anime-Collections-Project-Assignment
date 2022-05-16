@@ -1,16 +1,17 @@
-import { Skeleton, Space } from "antd"
-import styled from "@emotion/styled"
-import Text from "components/atoms/Text"
-import AnimeDetailInfo from "components/organisms/AnimeDetailInfo"
-import AppLayout from "components/organisms/Layout"
-import useTitle from "hooks/useTitle"
-import { useParams } from "react-router-dom"
-import { useQuery } from "@apollo/client"
-import DETAIL_ANIME_QUERY from "graphql/queries/detailAnime"
-import Button from "components/atoms/Button"
-import AlreadyCollection from "components/molecules/AlreadyCollection"
-import ModalAddAnime from "components/organisms/ModalAddAnime"
 import { useState } from "react"
+import styled from "@emotion/styled"
+import { useQuery } from "@apollo/client"
+import { useParams } from "react-router-dom"
+import { Empty, Skeleton, Space } from "antd"
+import useTitle from "hooks/useTitle"
+import Text from "components/atoms/Text"
+import Error from "components/atoms/Error"
+import Button from "components/atoms/Button"
+import AppLayout from "components/organisms/Layout"
+import ModalAddAnime from "components/organisms/ModalAddAnime"
+import AnimeDetailInfo from "components/organisms/AnimeDetailInfo"
+import AlreadyCollection from "components/molecules/AlreadyCollection"
+import DETAIL_ANIME_QUERY from "graphql/queries/detailAnime"
 
 const Container = styled.div`
   background-color: ${({ theme }) => theme.color.tertiary};
@@ -57,7 +58,11 @@ const AnimeDetail = (props) => {
   return (
     <AppLayout>
       {loading && <Skeleton />}
-      {error && error.message}
+      {error && 
+        <Error>
+          <Empty description={error.message ? error.message : "Something went wrong"} image={Empty.PRESENTED_IMAGE_SIMPLE} />
+        </Error>
+      }
       {data &&
       <>
         <ModalAddAnime

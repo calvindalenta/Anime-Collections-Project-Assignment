@@ -10,7 +10,7 @@ query SearchAnime($search: String) {
       hasNextPage
       perPage
     }
-    media (type: ANIME, isAdult: false, search: $search) {
+    media (type: ANIME, isAdult: false, search: $search, countryOfOrigin: JP) {
       id,
       status,
       genres,

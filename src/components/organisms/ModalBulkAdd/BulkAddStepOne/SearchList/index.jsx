@@ -1,6 +1,7 @@
 import { Empty, Skeleton, Space, Tooltip } from "antd";
 import styled from "@emotion/styled";
 import AnimeItem from "components/molecules/AnimeItem";
+import Error from "components/atoms/Error";
 
 const ListContainer = styled(Space)`
   width: 100%;
@@ -16,7 +17,11 @@ const SearchList = (props) => {
   return (
     <ListContainer direction="vertical" size="small">
       {loading && <Skeleton />}
-      {error && error.message}
+      {error && 
+        <Error>
+          <Empty description={error.message ? error.message : "Something went wrong"} image={Empty.PRESENTED_IMAGE_SIMPLE} />
+        </Error>
+      }
       {!loading && !error && (!data || data.length < 1) &&
         <Empty 
           image={Empty.PRESENTED_IMAGE_SIMPLE}

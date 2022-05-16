@@ -4,6 +4,7 @@ import useCollection from "hooks/useCollection"
 import CollectionCard from "components/molecules/CollectionCard"
 import { useNavigate } from "react-router-dom"
 import { getCollectionDetailRoute } from "utils/route"
+import Error from "components/atoms/Error"
 
 const Container = styled.div`
   background-color: ${({ theme }) => theme.color.tertiary};
@@ -20,14 +21,6 @@ const Container = styled.div`
   }
 `
 
-const EmptyContainer = styled.div`
-  background-color: ${({ theme }) => theme.color.tertiary};
-  box-shadow: 5px 5px ${({ theme }) => theme.color.tertiaryShade};
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-`
-
 const CollectionCardList = ({ onDelete, onEdit }) => {
   const [info] = useCollection()
   const navigate = useNavigate()
@@ -35,9 +28,9 @@ const CollectionCardList = ({ onDelete, onEdit }) => {
   const collections = Object.entries(info.collections)
 
   if (collections.length < 1) return (
-    <EmptyContainer>
+    <Error>
       <Empty description="You have no collections" image={Empty.PRESENTED_IMAGE_SIMPLE} />
-    </EmptyContainer>
+    </Error>
   )
 
   return (

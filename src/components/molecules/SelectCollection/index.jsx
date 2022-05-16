@@ -2,9 +2,7 @@ import { useState } from "react"
 import { Select, Space } from "antd"
 import styled from "@emotion/styled"
 import useCollection from "hooks/useCollection"
-import { hasSpecialChar } from "utils/validate"
 import InputSelect from "components/atoms/InputSelect"
-import InputText from "components/atoms/InputText"
 import InputCollection from "../InputCollection"
 
 const { Option } = Select 

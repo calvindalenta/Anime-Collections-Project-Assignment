@@ -32,10 +32,11 @@ export default function useCollection(){
     const newHistory = {
       timestamp: Date.now(),
       action: "remove-anime",
+      anime: { id: anime.id, title: anime.title.romaji || anime.title.english || anime.title.native },
       collection
     }
     const copyCol = {...info.collections}
-    copyCol[collection] = copyCol[collection].filter(a => a.id !== anime.id)
+    copyCol[collection] = copyCol[collection].filter(a => String(a.id) !== String(anime.id))
     saveCollection({ histories: [newHistory, ...info.histories], collections: copyCol })
   }, [info])
 

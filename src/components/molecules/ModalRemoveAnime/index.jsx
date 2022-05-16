@@ -14,8 +14,8 @@ const ButtonRight = styled.div`
   gap: 1rem;
 `
 
-const ModalRemoveCollection = ({ collection, visible, onRequestClose }) => {
-  const { removeCollection } = useCollection()[2]
+const ModalRemoveAnime = ({ anime, collection, title, visible, onRequestClose }) => {
+  const { removeAnime } = useCollection()[2]
 
   return (
     <Modal
@@ -24,16 +24,16 @@ const ModalRemoveCollection = ({ collection, visible, onRequestClose }) => {
       destroyOnClose
       visible={visible}
       onCancel={onRequestClose}
-      title={<p style={{ textAlign: "center" }}>Remove Collection</p>}
+      title={<p style={{ textAlign: "center" }}>Remove Anime</p>}
     >
       <Spacer direction="vertical" size="large">
         <p style={{ textAlign: "center" }}>
-          Are you sure you want to remove <Text type="Semibold">{collection}</Text>?
+          Are you sure you want to remove <Text type="Semibold">{title}</Text>?
         </p>
         <ButtonRight>
           <Button 
             onClick={() => {
-              removeCollection({ name: collection })
+              removeAnime({ anime, collection })
               onRequestClose()
             }}
           >
@@ -45,4 +45,4 @@ const ModalRemoveCollection = ({ collection, visible, onRequestClose }) => {
   )
 }
 
-export default ModalRemoveCollection
+export default ModalRemoveAnime

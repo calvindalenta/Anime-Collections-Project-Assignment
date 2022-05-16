@@ -10,7 +10,7 @@ query GetAnime($page: Int, $perPage: Int) {
       hasNextPage
       perPage
     }
-    media (type: ANIME, sort: START_DATE_DESC, status_in: RELEASING, isAdult: false) {
+    media (type: ANIME, sort: START_DATE_DESC, status_in: RELEASING, isAdult: false, countryOfOrigin: JP) {
       id,
       status,
       genres,

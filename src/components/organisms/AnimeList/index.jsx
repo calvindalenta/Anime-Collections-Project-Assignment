@@ -1,4 +1,4 @@
-import { Skeleton, Space } from "antd";
+import { Empty, Skeleton, Space } from "antd";
 import styled from "@emotion/styled";
 import { useQuery } from "@apollo/client";
 import Pagination from "components/atoms/Pagination";
@@ -6,6 +6,7 @@ import AnimeItem from "components/molecules/AnimeItem";
 import GET_ANIME_QUERY from "graphql/queries/getAnime";
 import { Link, useSearchParams } from "react-router-dom";
 import { getAnimeDetailRoute } from "utils/route";
+import Error from "components/atoms/Error";
 
 const ListContainer = styled(Space)`
   width: 100%;
@@ -41,7 +42,11 @@ const AnimeList = (props) => {
     <Container direction="vertical" size="middle">
       <ListContainer direction="vertical" size="small">
         {loading && <Skeleton />}
-        {error && error.message}
+        {error && 
+          <Error>
+            <Empty description={error.message ? error.message : "Something went wrong"} image={Empty.PRESENTED_IMAGE_SIMPLE} />
+          </Error>
+        }
         {data && data.Page.media.map(m => (
           <Link to={getAnimeDetailRoute(m.id)} key={m.id}>
             <AnimeItem 
