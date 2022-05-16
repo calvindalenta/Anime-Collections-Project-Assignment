@@ -62,6 +62,18 @@ const HistoryItem = ({ action, anime, collection }) => {
       </p>
       )
       break
+    case "edit-collection":
+      text = (
+      <p>
+        <span>Renamed </span> 
+        <Text type="Semibold">{collection[0]}</Text>
+        <span> to </span>
+        <Link to={getCollectionDetailRoute(collection[1])}>
+          <Text type="Semibold">{collection[1]}</Text>
+        </Link>
+      </p>
+      )
+      break
     default:
       break;
   }
