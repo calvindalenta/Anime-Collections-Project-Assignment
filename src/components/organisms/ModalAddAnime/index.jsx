@@ -1,9 +1,12 @@
 import { useState } from "react"
-import { Modal, Space } from "antd"
+import { Space } from "antd"
 import styled from "@emotion/styled"
 import useCollection from "hooks/useCollection"
 import SelectCollection, { COLLECTION_TYPE } from "components/molecules/SelectCollection"
 import Button from "components/atoms/Button"
+import Text from "components/atoms/Text"
+import CloseIcon from "components/atoms/CloseIcon"
+import Modal from "components/atoms/Modal"
 
 const Spacer = styled(Space)`
   width: 100%;
@@ -15,9 +18,10 @@ const ButtonRight = styled.div`
   gap: 1rem;
 `
 
+
 const ModalAddAnime = ({ anime, title, visible, onRequestClose }) => {
   const [collectionInfo, setCollectionInfo] = useState({})
-  const [info, setInfo, { createCollection, addAnime }] = useCollection()
+  const { createCollection, addAnime } = useCollection()[2]
 
   const closeModal = () => {
     setCollectionInfo({})
@@ -31,7 +35,8 @@ const ModalAddAnime = ({ anime, title, visible, onRequestClose }) => {
       destroyOnClose
       visible={visible}
       onCancel={closeModal}
-      title={<p style={{ textAlign: "center" }}>Add {title} to Your Collection</p>}
+      closeIcon={<CloseIcon />}
+      title={<p style={{ textAlign: "center", margin: 0 }}><Text>Add {title} to Your Collection</Text></p>}
     >
       <Spacer direction="vertical" size="large">
         <SelectCollection 

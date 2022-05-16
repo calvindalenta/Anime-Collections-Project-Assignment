@@ -1,10 +1,11 @@
-import { Modal } from "antd"
 import { useState } from "react"
 import { COLLECTION_TYPE } from "components/molecules/SelectCollection"
 import BulkAddSteps from "components/molecules/BulkAddSteps"
 import BulkAddStepOne from "./BulkAddStepOne"
 import BulkAddStepTwo from "./BulkAddStepTwo"
 import useCollection from "hooks/useCollection"
+import Modal from "components/atoms/Modal"
+import Text from "components/atoms/Text"
 
 const ModalBulkAdd = ({ visible, onRequestClose }) => {
   const [step, setStep] = useState(0)
@@ -26,7 +27,7 @@ const ModalBulkAdd = ({ visible, onRequestClose }) => {
       destroyOnClose
       visible={visible}
       onCancel={closeModal}
-      title={<p style={{ textAlign: "center" }}>Add Anime to Your Collection</p>}
+      title={<Text><p style={{ textAlign: "center" }}>Add Anime to Your Collection</p></Text>}
     >
       <BulkAddSteps 
         curStep={step}

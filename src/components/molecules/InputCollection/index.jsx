@@ -2,6 +2,7 @@ import { useState } from "react"
 import { hasSpecialChar } from "utils/validate"
 import useCollection from "hooks/useCollection"
 import InputText from "components/atoms/InputText"
+import Text from "components/atoms/Text"
 
 const InputCollection = ({ initValue, onChange }) => {
   const [info] = useCollection()
@@ -26,7 +27,7 @@ const InputCollection = ({ initValue, onChange }) => {
           }
         }}
       />
-      {error}
+      <Text size="Small">{error}</Text>
     </div>
   )
 }

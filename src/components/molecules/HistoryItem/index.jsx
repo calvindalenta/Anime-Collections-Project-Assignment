@@ -16,7 +16,7 @@ const HistoryItem = ({ action, anime, collection }) => {
   switch (action) {
     case "add-anime":
       text = (
-      <p>
+      <Text>
         <span>Added </span> 
         <Link to={getAnimeDetailRoute(anime.id)}>
           <Text type="Semibold">{anime.title}</Text>
@@ -25,12 +25,12 @@ const HistoryItem = ({ action, anime, collection }) => {
         <Link to={getCollectionDetailRoute(collection)}>
           <Text type="Semibold">{collection}</Text>
         </Link>
-      </p>
+      </Text>
       )
       break;
     case "remove-anime":
       text = (
-      <p>
+      <Text>
         <span>Removed </span> 
         <Link to={getAnimeDetailRoute(anime.id)}>
           <Text type="Semibold">{anime.title}</Text>
@@ -39,39 +39,39 @@ const HistoryItem = ({ action, anime, collection }) => {
         <Link to={getCollectionDetailRoute(collection)}>
           <Text type="Semibold">{collection}</Text>
         </Link>
-      </p>
+      </Text>
       )
       break;
     case "add-collection":
       text = (
-      <p>
+      <Text>
         <span>Added </span> 
         <Link to={getCollectionDetailRoute(collection)}>
           <Text type="Semibold">{collection}</Text>
         </Link>
-      </p>
+      </Text>
       )
       break;
     case "remove-collection":
       text = (
-      <p>
+      <Text>
         <span>Removed </span> 
         <Link to={getCollectionDetailRoute(collection)}>
           <Text type="Semibold">{collection}</Text>
         </Link>
-      </p>
+      </Text>
       )
       break
     case "edit-collection":
       text = (
-      <p>
+      <Text>
         <span>Renamed </span> 
         <Text type="Semibold">{collection[0]}</Text>
         <span> to </span>
         <Link to={getCollectionDetailRoute(collection[1])}>
           <Text type="Semibold">{collection[1]}</Text>
         </Link>
-      </p>
+      </Text>
       )
       break
     default:

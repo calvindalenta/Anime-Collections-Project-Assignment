@@ -7,6 +7,13 @@ import EditIcon from 'components/atoms/EditIcon';
 const { Meta } = Card;
 
 const StyledCard = styled(Card)`
+  border-color: ${({ theme }) => theme.color.tertiaryShade};
+
+  &.ant-card-hoverable:hover {
+    border: 2px solid ${({ theme }) => theme.color.tertiaryShade};
+    box-shadow: 0 3px 5px ${({ theme }) => theme.color.tertiaryShade};
+  }
+
   & .ant-card-actions li {
     margin: 0;
   }
@@ -18,6 +25,10 @@ const StyledCard = styled(Card)`
     & p {
       color: white;
     }
+  }
+
+  & .ant-card-actions {
+    background-color: ${({ theme }) => theme.color.tertiaryShade};
   }
 `
 

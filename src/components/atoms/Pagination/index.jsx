@@ -7,16 +7,16 @@ const PaginationStyled = styled(AntdPagination)`
   }
   & .ant-pagination-item {
     border: none;
-    background-color: ${({ theme }) => theme.color.tertiary}
+    background-color: ${({ theme }) => theme.color.tertiaryShade}
   }
   & .ant-pagination-item-active {
     background-color: ${({ theme }) => theme.color.primary};
-    & a {
-      color: ${({ theme }) => theme.text.secondary}
-    }
   }
   & .ant-pagination-item-active:hover {
     border: 1px solid ${({ theme }) => theme.color.tertiary};
+  }
+  & a {
+    color: ${({ theme }) => theme.text.secondary}
   }
 `
 

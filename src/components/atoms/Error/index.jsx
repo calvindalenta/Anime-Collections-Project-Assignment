@@ -6,6 +6,10 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   gap: 3rem;
+
+  & .ant-empty-description {
+    color: ${({ theme }) => theme.text.primary} !important;
+  }
 `
 
 const Error = ({ children }) => {

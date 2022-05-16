@@ -15,6 +15,10 @@ const StepsStyled = styled(Steps)`
     border-color: ${({ theme }) => theme.color.primary};
     color: ${({ theme }) => theme.color.primary};
   }
+
+  & .ant-steps-item-title {
+    color: ${({ theme }) => theme.text.primary} !important;
+  }
 `
 
 const Spacer = styled(Space)`

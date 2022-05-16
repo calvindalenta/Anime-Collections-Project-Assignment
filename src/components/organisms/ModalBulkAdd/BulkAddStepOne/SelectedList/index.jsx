@@ -1,6 +1,7 @@
 import { Collapse, Space, Tooltip } from "antd";
 import styled from "@emotion/styled";
 import AnimeItem from "components/molecules/AnimeItem";
+import Text from "components/atoms/Text";
 
 const ListContainer = styled(Space)`
   width: 100%;
@@ -11,8 +12,19 @@ const ListContainer = styled(Space)`
 `
 
 const CollapseStyled = styled(Collapse)`
+  border-color: ${({ theme }) => theme.color.tertiaryShade};
+
+  & .ant-collapse-arrow {
+    background-color: ${({ theme }) => theme.text.primary};
+  }
+
   & .ant-collapse-header {
     padding: 0.3rem 1rem !important;
+    background-color: ${({ theme }) => theme.color.tertiary};
+  }
+
+  & .ant-collapse-content {
+    background-color: ${({ theme }) => theme.color.tertiary};
   }
 `
 
@@ -21,7 +33,7 @@ const SelectedList = (props) => {
   
   return (
     <CollapseStyled expandIconPosition="right">
-      <Collapse.Panel header={`Selected: ${data ? data.length : 0}`} key="1">
+      <Collapse.Panel header={<Text>Selected: {data ? data.length : 0}</Text>} key="1">
         <ListContainer direction="vertical" size="small">
           {data && data.map(m => (
             <Tooltip key={m.id} title="Click to remove">

@@ -1,8 +1,9 @@
-import { Modal, Space } from "antd"
+import { Space } from "antd"
 import styled from "@emotion/styled"
 import Button from "components/atoms/Button"
 import Text from "components/atoms/Text"
 import useCollection from "hooks/useCollection"
+import Modal from "components/atoms/Modal"
 
 const Spacer = styled(Space)`
   width: 100%;
@@ -24,11 +25,11 @@ const ModalRemoveAnime = ({ anime, collection, title, visible, onRequestClose })
       destroyOnClose
       visible={visible}
       onCancel={onRequestClose}
-      title={<p style={{ textAlign: "center" }}>Remove Anime</p>}
+      title={<Text><p style={{ textAlign: "center" }}>Remove Anime</p></Text>}
     >
       <Spacer direction="vertical" size="large">
         <p style={{ textAlign: "center" }}>
-          Are you sure you want to remove <Text type="Semibold">{title}</Text>?
+          <Text>Are you sure you want to remove <Text type="Semibold">{title}</Text>?</Text>
         </p>
         <ButtonRight>
           <Button 

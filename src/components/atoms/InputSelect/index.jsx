@@ -10,6 +10,11 @@ const StyledSelect = styled(AntdSelect)`
   & .ant-select-selector:hover {
     border-color: ${({ theme }) => theme.color.primary} !important;
   }
+
+  & .ant-select-selector {
+    background-color: ${({ theme }) => theme.color.tertiary} !important;
+    color: ${({ theme }) => theme.text.primary} !important;
+  }
 `
 
 const InputSelect = (props) => <StyledSelect {...props} />

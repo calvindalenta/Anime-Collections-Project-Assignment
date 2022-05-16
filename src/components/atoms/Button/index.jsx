@@ -10,6 +10,11 @@ const Button = styled(AntdButton)`
     background-color: ${({ theme }) => theme.color.primaryShade} !important;
     color: ${({ theme }) => theme.text.secondary};
   }
+
+  &[disabled] {
+    background-color: ${({ theme }) => theme.color.tertiaryShade} !important;
+    color: ${({ theme }) => theme.text.secondary};
+  }
 `
 
 export default Button

@@ -14,10 +14,12 @@ const typeMap = {
   Bold: "700"
 }
 
-const Text = styled.span(({ type, size, primary, theme }) => ({
+const TextStyled = styled.span(({ type, size, primary, theme }) => ({
   fontSize: sizeMap[size] ? sizeMap[size] : sizeMap.Normal,
   fontWeight: typeMap[type] ? typeMap[type] : typeMap.Regular,
-  color: theme.text.primary
+  color: theme.text.primary,
 }))
+
+const Text = (props) => <TextStyled {...props} />
 
 export default Text

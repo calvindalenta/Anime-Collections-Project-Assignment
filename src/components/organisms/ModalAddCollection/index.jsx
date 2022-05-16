@@ -1,9 +1,11 @@
-import { Modal, Space } from "antd"
+import { Space } from "antd"
 import styled from "@emotion/styled"
 import Button from "components/atoms/Button"
 import InputCollection from "components/molecules/InputCollection"
 import { useState } from "react"
 import useCollection from "hooks/useCollection"
+import Modal from "components/atoms/Modal"
+import Text from "components/atoms/Text"
 
 const Spacer = styled(Space)`
   width: 100%;
@@ -26,7 +28,7 @@ const ModalAddCollection = ({ visible, onRequestClose }) => {
       destroyOnClose
       visible={visible}
       onCancel={onRequestClose}
-      title={<p style={{ textAlign: "center" }}>Add Collection</p>}
+      title={<Text><p style={{ textAlign: "center" }}>Add Collection</p></Text>}
     >
       <Spacer direction="vertical" size="large">
         <InputCollection onChange={(d) => setData(d)} />

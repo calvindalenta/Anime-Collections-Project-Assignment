@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from '@emotion/react';
 import { BrowserRouter as Router } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { lightTheme } from 'theme';
+import { darkTheme, lightTheme } from 'theme';
 import App from 'App';
 import 'index.css';
 import 'antd/dist/antd.css'
@@ -19,7 +19,7 @@ root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <Router>
-        <ThemeProvider theme={lightTheme}>
+        <ThemeProvider theme={darkTheme}>
           <App />
         </ThemeProvider>
       </Router>

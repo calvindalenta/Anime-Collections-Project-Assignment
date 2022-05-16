@@ -23,10 +23,12 @@ const SearchList = (props) => {
         </Error>
       }
       {!loading && !error && (!data || data.length < 1) &&
-        <Empty 
-          image={Empty.PRESENTED_IMAGE_SIMPLE}
-          description="Search any anime"
-        />
+        <Error>
+          <Empty 
+            image={Empty.PRESENTED_IMAGE_SIMPLE}
+            description="Search any anime"
+          />
+        </Error>
       }
       {data && data.Page.media.map(m => (
         <Tooltip key={m.id} title="Click to add">
