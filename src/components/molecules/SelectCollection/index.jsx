@@ -5,6 +5,7 @@ import useCollection from "hooks/useCollection"
 import { hasSpecialChar } from "utils/validate"
 import InputSelect from "components/atoms/InputSelect"
 import InputText from "components/atoms/InputText"
+import InputCollection from "../InputCollection"
 
 const { Option } = Select 
 
@@ -19,7 +20,6 @@ export const COLLECTION_TYPE = {
 
 const SelectCollection = ({ onChange }) => {
   const [type, setType] = useState(COLLECTION_TYPE.EXISTING)
-  const [error, setError] = useState()
   const [info] = useCollection()
 
   return (
@@ -29,32 +29,13 @@ const SelectCollection = ({ onChange }) => {
         onChange={(v) => {
           onChange({ type: v })
           setType(v)
-          setError()
         }}
       >
         <Option value={COLLECTION_TYPE.EXISTING}>Existing Collection</Option>
         <Option value={COLLECTION_TYPE.NEW}>New Collection</Option>
       </InputSelect>
       {type === COLLECTION_TYPE.NEW &&
-      <div>
-        <InputText 
-          placeholder="Type collection name" 
-          onChange={(e) => {
-            const v = e.target.value
-            if (hasSpecialChar(v)){
-              setError("Collection name shouldn't include any special characters")
-              onChange({ error })
-            } else if (Object.keys(info.collections).includes(v)){
-              setError("There's already a collection with the same name")
-              onChange({ error })
-            } else {
-              setError()
-              onChange({ type, value: e.target.value, error })
-            }
-          }}
-        />
-        {error}
-      </div>
+        <InputCollection onChange={({ value, error }) => onChange({ type, value, error })} />
       }
       {type === COLLECTION_TYPE.EXISTING &&
         <InputSelect 

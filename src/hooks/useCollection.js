@@ -61,5 +61,17 @@ export default function useCollection(){
     saveCollection({ histories: [newHistory, ...info.histories], collections: copyCol })
   }, [info])
 
-  return [info, setInfo, { addAnime, removeAnime, createCollection, removeCollection }]
+  const editCollection = useCallback(({ before, after }) => {
+    const newHistory = {
+      timestamp: Date.now(),
+      action: "edit-collection",
+      collection: [before, after]
+    }
+    const copyCol = {...info.collections}
+    copyCol[after] = [...copyCol[before]]
+    delete copyCol[before]
+    saveCollection({ histories: [newHistory, ...info.histories], collections: copyCol })
+  }, [info])
+
+  return [info, setInfo, { addAnime, removeAnime, createCollection, removeCollection, editCollection }]
 }

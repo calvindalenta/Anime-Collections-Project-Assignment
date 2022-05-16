@@ -16,6 +16,7 @@ const HeaderStyled = styled(AntdHeader)`
   padding: 0 1rem;
   position: sticky;
   top: 0;
+  z-index: 999;
 
   @media screen and (min-width: 769px){
     padding: 0 2rem;
