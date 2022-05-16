@@ -28,8 +28,9 @@ const SelectCollection = ({ onChange }) => {
         value={type} 
         onChange={(v) => {
           onChange({ type: v })
-          setType(v)}
-        }
+          setType(v)
+          setError()
+        }}
       >
         <Option value={COLLECTION_TYPE.EXISTING}>Existing Collection</Option>
         <Option value={COLLECTION_TYPE.NEW}>New Collection</Option>
@@ -42,6 +43,10 @@ const SelectCollection = ({ onChange }) => {
             const v = e.target.value
             if (hasSpecialChar(v)){
               setError("Collection name shouldn't include any special characters")
+              onChange({ error })
+            } else if (Object.keys(info.collections).includes(v)){
+              setError("There's already a collection with the same name")
+              onChange({ error })
             } else {
               setError()
               onChange({ type, value: e.target.value, error })

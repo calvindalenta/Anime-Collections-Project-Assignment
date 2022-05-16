@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import { HOME_ROUTE } from "utils/route";
+
 const { default: styled } = require("@emotion/styled");
 
 const LogoStyled = styled.span(({ theme }) => ({
@@ -6,5 +9,5 @@ const LogoStyled = styled.span(({ theme }) => ({
   fontSize: "2rem",
 }))
 
-const Logo = () => <LogoStyled>{process.env.REACT_APP_TITLE}</LogoStyled>
+const Logo = () => <Link to={HOME_ROUTE}><LogoStyled>{process.env.REACT_APP_TITLE}</LogoStyled></Link>
 export default Logo
