@@ -1,6 +1,7 @@
 import { Space } from "antd"
 import styled from "@emotion/styled"
 import Text from "components/atoms/Text"
+import ImageRenderer from "components/atoms/ImageRenderer"
 
 const Container = styled.div`
   display: flex;
@@ -39,7 +40,7 @@ const Content = styled(Space)`
 const CompactAnimeItem = ({ imgSrc, title, onClick }) => {
   return (
     <Container onClick={onClick}>
-      <img src={imgSrc} alt={title}/>
+      <ImageRenderer src={imgSrc} alt={title}/>
       <Content direction="vertical" size="small">
         <Text size="Normal" type="Semibold">{title}</Text>
       </Content>

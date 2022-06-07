@@ -12,6 +12,7 @@ import ModalAddAnime from "components/organisms/ModalAddAnime"
 import AnimeDetailInfo from "components/organisms/AnimeDetailInfo"
 import AlreadyCollection from "components/molecules/AlreadyCollection"
 import DETAIL_ANIME_QUERY from "graphql/queries/detailAnime"
+import ImageRenderer from "components/atoms/ImageRenderer"
 
 const Container = styled.div`
   background-color: ${({ theme }) => theme.color.tertiary};
@@ -80,7 +81,7 @@ const AnimeDetail = (props) => {
           </Text>
           <Container>
             <LeftContainer direction="vertical">
-              <img src={data.Media.coverImage.large} alt={data.Media.title.romaji}/>
+              <ImageRenderer src={data.Media.coverImage.large} alt={data.Media.title.romaji}/>
               <Button
                 onClick={() => setModalVisible(true)}
               >

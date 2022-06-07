@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import IconButton from 'components/atoms/IconButton';
 import DeleteIcon from 'components/atoms/TrashIcon';
 import EditIcon from 'components/atoms/EditIcon';
+import ImageRenderer from 'components/atoms/ImageRenderer';
 
 const { Meta } = Card;
 
@@ -54,7 +55,7 @@ const CollectionCard = ({ imgSrc, name, onClickCard, onClickEdit, onClickDelete 
           <IconButton onClick={noProp(onClickDelete)}><DeleteIcon /></IconButton>
         </ActionsContainer>
       ]}
-      cover={<img alt={name} src={imgSrc}/>}
+      cover={<ImageRenderer alt={name} src={imgSrc}/>}
     >
       <Meta title={<p style={{ textAlign: "center", margin: 0, }}>{name}</p>} />
     </StyledCard>
